@@ -20,4 +20,14 @@ class TweetDatasource {
     }
     return tweetsList;
   }
+
+  static Future<bool> postTweet(TweetModel tweetModel) async {
+    http.Response res = await http.post(
+        Uri.parse("https://6465a133228bd07b354eb182.mockapi.io/tweet"),
+        body: tweetModel.toJson());
+    if (res.statusCode == 200) {
+      return false;
+    }
+    return false;
+  }
 }
